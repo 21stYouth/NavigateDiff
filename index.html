@@ -193,22 +193,46 @@
         <h2 class="title is-3">Method</h2>
         <div class="content has-text-justified">
           <p>
-            Content of Method.
-            Content of Method.
-            Content of Method.
-            Content of Method.
-            Content of Method.
-            Content of Method.
+            NavigateDiff utilizes the logical knowledge and the generalization ability of pre-trained foundation models to improve
+            zero-shot navigation in the presence of novel environments,
+            scenes, and objects. How can we achieve this when foundation models trained on general-purpose Internet data do
+            not provide direct guidance for selecting low-level navigation actions? Our key insight is to decouple the navigation
+            problem into two stages: (I) generating intermediate future
+            goals that need to be reached to successfully navigate,
+            and (II) learning low-level control policies for reaching
+            these future goals. In Stage (I), we build a Predictor by
+            incorporating a Multimodal Large Language Model (MLLM)
+            with a diffusion model, fine-tuned with parameter efficiency,
+            specifically designed for Image Navigation. Stage (II)
+            involves training a Fusion Navigation Policy on image
+            navigation data and testing in new environments. We describe
+            data collection and each of these stages in detail below and
+            summarize the resulting navigation algorithm.
           </p>
-          <h3>Sub Method 1</h3> <!-- 新增小标题 -->
+          <h3>Multimodal Large Language Model</h3> <!-- 新增小标题 -->
           <p>
-            Content related to Sub Method 1.
-          </p>
-          <h3>Sub Method 2</h3> <!-- 新增小标题 -->
-          <p>
-            Content related to Sub Method 2.
+            Multimodal Large Language Model. Given a current
+            observation xt, a goal image xg, and a textual instruction
+            y, the Predictor generates a future frame. As shown in
+            Fig. 2, the current observation and goal image are processed
+            through a frozen image encoder, while the textual instruction
+            is tokenized and passed to the LLM. The Predictor can
+            now generate Special Image Tokens image based on the
+            instruction’s intent, though initially limited to the language
+            modality. These tokens are then sent to the Future Frame Prediction Model to produce the final future frame prediction.
+            In practice, we utilized LLaVA as our base model, which
+            consists of a pre-trained CLIP visual encoder (ViT-L/14) and
+            Vicuna-7B as the LLM backbone. To fine-tune the LLM, we
+            applied LoRA, initializing a trainable matrix to adapt the
+            model for the task.
           </p>
           <img src="static/images/generator.png" alt="Description of the image">
+          <h3>NavigateDiff</h3> <!-- 新增小标题 -->
+          <p>
+            NavigateDiff leverages a Future Frame pretrained Predictor to generate future frames based on current observation and navigation task information.
+            A fusion navigation policy then executes the actions needed to reach the future frames. Alternating this loop enables us to accomplish the navigation task.
+          </p>
+          <img src="static/images/pipeline.png" alt="Description of the image">
         </div>
       </div>
     </div>
