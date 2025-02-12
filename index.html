@@ -219,24 +219,26 @@
         <h2 class="title is-3">NavigateDiff</h2>
         <div class="content has-text-justified">
           <p>
-            As illustrated in Fig.~\ref{fig:generator}, our Predictor integrates a \textbf{Multimodal Large Language Model~(MLLM)} with a \textbf{Future Frame Prediction Model}, which could process current observations, target images, and instructions and generate a predicted future image based on the provided input.
-             \textbf{Multimodal Large Language Model.} 
-            Given a current observation $x_t$, a goal image $x_g$, and a textual instruction $y$, the Predictor generates a future frame. 
-            %
-            As shown in Fig.~\ref{fig:generator}, the current observation and goal image are processed through a frozen image encoder, while the textual instruction is tokenized and passed to the LLM. 
-            %
-            The Predictor can now generate Special Image Tokens $<$image$>$ based on the instruction's intent, though initially limited to the language modality. 
-            %
-            These tokens are then sent to the Future Frame Prediction Model to produce the final future frame prediction.
-            %
-            In practice, we utilized LLaVA as our base model, which consists of a pre-trained CLIP visual encoder (ViT-L/14) and Vicuna-7B as the LLM backbone. 
-            %
-            To fine-tune the LLM, we applied LoRA, initializing a trainable matrix to adapt the model for the task.
+            contentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontent
           </p>
         </div>
         <div class="item">
         <!-- Your image here -->
-        <img src="static/images/generator.png" alt="MY ALT TEXT"/>
+        <img src="static/images/pipeline.png" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+          Test
+        </h2>
+        </div>
+
+        <h2 class="title is-3">Visualization</h2>
+        <div class="content has-text-justified">
+          <p>
+            contentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontent
+          </p>
+        </div>
+        <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/visualization.png" alt="MY ALT TEXT"/>
         <h2 class="subtitle has-text-centered">
           Test
         </h2>
