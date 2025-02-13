@@ -212,7 +212,7 @@
           <h3>Multimodal Large Language Model</h3> <!-- 新增小标题 -->
           <p>
             Multimodal Large Language Model. Given a current
-            observation xt, a goal image xg, and a textual instruction
+            observation x_t, a goal image x_g, and a textual instruction
             y, the Predictor generates a future frame. As shown in
             Fig. 2, the current observation and goal image are processed
             through a frozen image encoder, while the textual instruction
@@ -256,6 +256,21 @@
             Content of Experiments.
             Content of Experiments.
           </p>
+          <h3>Quantitative Comparison</h3> <!-- 新增小标题 -->
+          <p>
+            We implement three image-level metrics to
+            evaluate the Predictor’s generation ability. (1) Frechet In-
+            ception Distance (FID), (2) Peak Signal-to-Noise Ratio (PSNR), (3)Learned Perceptual Image Patch Similarity
+            (LPIPS). We measure the similarity between the generated future frame and ground truth. In terms of image-level
+            metrics in Tab. I, our Predictor outperforms IP2P by a large
+            margin (0.66, 0.14, and 1.43 respectively) in all three metrics
+            on the Gibson dataset. In Fig. 5, we also visualize predicted
+            future frame sequences and trajectory rollouts in the Gibson
+            dataset. We observe that generating future frames one by one
+            could efficiently guide the PolicyNet in action generation.
+          </p>
+          <img src="static/images/table1.png" alt="Description of the image">
+          <img src="static/images/visualization.png" alt="Description of the image">
         </div>
       </div>
     </div>
