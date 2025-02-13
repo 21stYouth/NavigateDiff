@@ -177,13 +177,6 @@
             This approach enhances navigation control and generalization across both simulated and real-world environments. 
             Through extensive experimentation, we demonstrate the robustness and versatility of our method, showcasing its potential to improve the efficiency and effectiveness of robotic navigation in diverse settings.
           </p>
-          <div>
-          <img src="static/images/motivation.png" alt="Description of the image">
-            <p>
-              NavigateDiff leverages logical reasoning and generalization capabilities of pre-trained foundation models to enhance zero-shot navigation by
-              predicting future observations to assist robot generate robust actions
-            </p>
-          <div>
         </div>
       </div>
     </div>
@@ -240,6 +233,21 @@
             A fusion navigation policy then executes the actions needed to reach the future frames. Alternating this loop enables us to accomplish the navigation task.
           </p>
           <img src="static/images/pipeline.png" alt="Description of the image">
+          <h3>Fusion strategy design</h3> <!-- 新增小标题 -->
+          <p>
+            As shown in Fig. 4, we designed a
+            Hybrid Fusion approach to fuse image features and compared
+            its performance with Early Fusion and Late Fusion. In Early
+            Fusion, the current observation, future frame prediction, and
+            goal image are concatenated along the RGB channels and
+            then passed through a visual encoder for feature extraction.
+            While this method can capture pixel-level semantic relationships among the three images, it struggles to effectively
+            associate the logical relationships among them. In contrast,
+            Late Fusion processes the three images separately through
+            the visual encoder and then fuses them at the feature level,
+            but this approach fails to capture pixel-level semantic correlations, leading to suboptimal performance.
+          </p>
+          <img src="static/images/fusion.png" alt="Description of the image">
         </div>
       </div>
     </div>
@@ -296,14 +304,29 @@
             and the baseline.
           </p>
           <img src="static/images/table3.png" alt="Description of the image">
-          <h3>Comparing in three diverse real-world environments scenes</h3> <!-- 新增小标题 -->
+          <h3>Real-world experiments</h3> <!-- 新增小标题 -->
+          <p>
+            In our real-world experiments, we focused on
+            indoor environments to evaluate the zero-shot navigation capabilities of our model, NavigateDiff. As illustrated in Fig. 6,
+            we conducted tests in three types of indoor environments:
+            an office, a parking lot, and a corridor. Each environment
+            represents a unique set of challenges in terms of layout,
+            lighting, and obstacles. The office setting is characterized by
+            cluttered spaces, including desks, chairs, and other furniture.
+            The indoor parking lot represents a semi-structured environment with clearly defined paths and open spaces but is filled
+            with parked vehicles that act as static obstacles. The corridor
+            is a long, narrow space with fewer obstacles but presents
+            challenges in terms of navigation through tight spaces and
+            sharp turns.
+          </p>
           <p>
             As detailed in Tab. IV, We evaluate the performance of NavigateDiff in terms of success rate and SPL. The
             metric across the three real-world scenarios demonstrates that
             our model consistently surpasses the baseline.
           </p>
+          <img src="static/images/concat.png" alt="Description of the image">
           <img src="static/images/table4.png" alt="Description of the image">
-          <h3>Different fusion strategies on gibson imagenav task</h3> <!-- 新增小标题 -->
+          <h3>Fusion strategy design</h3> <!-- 新增小标题 -->
           <p>
             As shown in Tab. V, we evaluate different fusion strategies
             on the Gibson ImageNav task. Our proposed Hybrid Fusion
